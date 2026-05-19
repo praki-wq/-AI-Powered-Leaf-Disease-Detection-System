@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>History</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+<body>
+    <div class="back-container">
+
+    <button
+        onclick="history.back()"
+        class="back-btn"
+    >
+        ← Back
+    </button>
+
+</div>
+
+<div class="container">
+
+    <h1 class="title">
+        Detection History
+    </h1>
+
+    {% for item in records %}
+
+    <div class="card">
+
+        <img
+            src="data:image/jpeg;base64,{{ item.image }}"
+            class="result-image"
+        >
+
+        <h2>
+            {{ item.disease }}
+        </h2>
+
+        <p>
+            {{ item.created_at }}
+        </p>
+
+    </div>
+
+    <br>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

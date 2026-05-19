@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Detection Result</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        🌿 Ai Powered Leaf Disease Detection
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/detect">Detect</a>
+
+        <a href="/history">History</a>
+
+        <a href="/about">About</a>
+
+        <a href="/">Logout</a>
+
+    </div>
+
+</div>
+    <div class="back-container">
+
+    <button
+        onclick="history.back()"
+        class="back-btn"
+    >
+        ← Back
+    </button>
+
+</div>
+
+<div class="container">
+
+    <h1 class="title">
+        Detection Result
+    </h1>
+
+    <div class="card">
+        <img
+    src="data:image/jpeg;base64,{{ image }}"
+    class="result-image"
+>
+
+        <h2>
+            Disease:
+            {{ disease }}
+        </h2>
+        <h3>
+             Confidence: {{ confidence }}
+        </h3>
+
+        <br>
+
+        <h3>Symptoms</h3>
+
+        <ul>
+
+            {% for symptom in symptoms %}
+
+            <li>{{ symptom }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+        <br>
+
+        <h3>Treatment</h3>
+
+        <ul>
+
+            {% for item in treatment %}
+
+            <li>{{ item }}</li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

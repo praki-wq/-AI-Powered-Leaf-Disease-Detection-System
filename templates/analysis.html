@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Analysis</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        🌿 Leaf Disease Detection
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/detect">Detect</a>
+
+        <a href="/history">History</a>
+
+        <a href="/about">About</a>
+
+    </div>
+
+</div>
+    <div class="back-container">
+
+    <button
+        onclick="history.back()"
+        class="back-btn"
+    >
+        ← Back
+    </button>
+
+</div>
+
+<div class="container">
+
+    <h1 class="title">
+        AI Disease Analytics
+    </h1>
+
+    <div class="card">
+
+        <h2>📊 Disease Distribution</h2>
+
+        <div class="chart-container">
+
+            <canvas id="myChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+
+    type: 'pie',
+
+    data: {
+
+        labels: [
+
+            'Fungal',
+            'Bacterial',
+            'Viral'
+        ],
+
+        datasets: [{
+
+            data: [40, 30, 30],
+
+            backgroundColor: [
+
+                '#4CAF50',
+                '#FF9800',
+                '#2196F3'
+            ]
+
+        }]
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

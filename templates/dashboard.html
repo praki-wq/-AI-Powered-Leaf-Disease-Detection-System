@@ -1,0 +1,286 @@
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        🌿 Ai Powered Leaf Disease Detection
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/detect">Detect</a>
+
+        <a href="/history">History</a>
+
+        <a href="/about">About</a>
+
+        <span class="welcome-user">
+            Welcome, Prajwal
+        </span>
+
+        <div class="clock-box">
+
+            <div id="date"></div>
+
+            <div id="clock"></div>
+
+        </div>
+
+        <a href="/" class="logout-btn">
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <h1 class="title">
+        Dashboard
+    </h1>
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+
+            <h3>Total Scans</h3>
+
+            <p>542</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Accuracy</h3>
+
+            <p>97%</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Diseases Detected</h3>
+
+            <p>4</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Healthy Leaves</h3>
+
+            <p>128</p>
+
+        </div>
+
+    </div>
+
+    <div class="card-grid">
+
+        <a href="/detect" class="card-link">
+
+            <div class="card">
+
+                <h2>
+                    🌿 Detect Disease
+                </h2>
+
+                <p>
+                    Upload leaf images and detect diseases instantly.
+                </p>
+
+            </div>
+
+        </a>
+
+        <a href="/ai-analysis" class="card-link">
+
+            <div class="card">
+
+                <h2>
+                    📊 AI Analysis
+                </h2>
+
+                <p>
+                    Advanced AI disease prediction and recommendations.
+                </p>
+
+            </div>
+
+        </a>
+
+        <a href="/history" class="card-link">
+
+            <div class="card">
+
+                <h2>
+                    📁 History
+                </h2>
+
+                <p>
+                    View previous detections and reports.
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+    <div class="chart-container">
+
+        <div class="chart-box">
+
+            <canvas id="pieChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="recent-table">
+
+    <h2>
+        Recent Detections
+    </h2>
+
+    <table>
+
+        <tr>
+
+            <th>Disease</th>
+
+            <th>Confidence</th>
+
+            <th>Date</th>
+
+        </tr>
+
+        <tr>
+
+            <td>Rust Leaf</td>
+
+            <td>97%</td>
+
+            <td>08 May 2026</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Healthy Leaf</td>
+
+            <td>99%</td>
+
+            <td>08 May 2026</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Leaf Spot</td>
+
+            <td>95%</td>
+
+            <td>07 May 2026</td>
+
+        </tr>
+
+    </table>
+
+</div>
+
+<script>
+
+function updateClock(){
+
+    const now = new Date();
+
+    const time =
+    now.toLocaleTimeString();
+
+    const date =
+    now.toDateString();
+
+    document
+    .getElementById("clock")
+    .innerHTML = time;
+
+    document
+    .getElementById("date")
+    .innerHTML = date;
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const pieCtx =
+document
+.getElementById(
+    'pieChart'
+);
+
+new Chart(pieCtx, {
+
+    type:'pie',
+
+    data:{
+
+        labels:[
+
+            'Healthy',
+            'Rust',
+            'Leaf Spot',
+            'Fungus',
+            'Mosaic Virus'
+        ],
+
+        datasets:[{
+
+            data:[
+                40,
+                20,
+                15,
+                10,
+                15
+            ],
+
+            backgroundColor:[
+
+                '#2ecc71',
+                '#f39c12',
+                '#3498db',
+                '#9b59b6',
+                '#e74c3c'
+            ]
+        }]
+    }
+});
+
+
+
+</script>
+
+</body>
+
+</html>
